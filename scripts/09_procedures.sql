@@ -1,0 +1,23 @@
+CREATE OR REPLACE PROCEDURE ISSUE_BOOK_PROC
+(
+    P_COPY_ID NUMBER,
+    P_MEMBER_ID NUMBER
+)
+AS
+BEGIN
+    INSERT INTO ISSUES
+    (
+        COPY_ID,
+        MEMBER_ID,
+        DUE_DATE
+    )
+    VALUES
+    (
+        P_COPY_ID,
+        P_MEMBER_ID,
+        SYSDATE + 7
+    );
+
+    COMMIT;
+END;
+/
